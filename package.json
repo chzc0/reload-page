@@ -1,0 +1,47 @@
+{
+  "name": "reload-page",
+  "version": "0.0.1",
+  "description": "After the front end releases, the page can be refreshed automatically.",
+  "main": "src/index.js",
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "~5.2.0",
+    "nyc": "^11.3.0",
+    "requirejs": "^2.1.22",
+    "uglify-js": "^3.1.9",
+    "webworker-threads": "^0.7.11"
+  },
+  "scripts": {
+    "test": "nyc mocha tests/node-test.js --exit",
+    "report": "nyc --reporter=html --reporter=text mocha tests/node-test.js --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "build": "uglifyjs src/reload-page.js -c -m eval --comments -o build/reload-page.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chzc0/reload-page.git"
+  },
+  "keywords": [
+    "sha",
+    "sha2",
+    "sha384",
+    "sha512",
+    "sha512/224",
+    "sha512/256",
+    "hash",
+    "encryption",
+    "cryptography",
+    "HMAC"
+  ],
+  "license": "MIT",
+  "author": "Chen, Zhi-Cheng <chzc0@163.com>",
+  "homepage": "https://github.com/reload-page/reload-page",
+  "bugs": {
+    "url": "https://github.com/chzc0/reload-page/issues"
+  },
+  "nyc": {
+    "exclude": [
+      "tests"
+    ]
+  }
+}
