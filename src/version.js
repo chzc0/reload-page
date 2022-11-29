@@ -1,10 +1,11 @@
 const { writeFileSync, readFileSync } = require('fs')
+const path = require('path')
 
-function setVersionFile(path) {
+function setVersionFile(projectPath) {
   let currentVersion = Date.now()
-  const jsfile = readFileSync('./src/reload-page.js')
-  writeFileSync(path + '/build/update_popup_version.txt', currentVersion + '', {flag: 'w+'});
-  writeFileSync(path + '/build/reload-page.prod.js', `var updateVersion = ${currentVersion};${jsfile}`, {flag: 'w+'});
+  const jsfile = readFileSync(path.resolve(__dirname, './reload-page.js'))
+  writeFileSync(projectPath + '/update_popup_version.txt', currentVersion + '', {flag: 'w+'});
+  writeFileSync(path.resolve(__dirname, '../build/reload-page.prod.js'), `var updateVersion = ${currentVersion};${jsfile}`, {flag: 'w+'});
 }
 
 module.exports = setVersionFile
