@@ -6,7 +6,7 @@
   "devDependencies": {
   },
   "scripts": {
-    "dev": "node index"
+    "dev": "node build/build"
   },
   "repository": {
     "type": "git",
