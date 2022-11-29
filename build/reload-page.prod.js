@@ -1,8 +1,11 @@
-export function spaUpdate() {
+var updateVersion = 1669689387026;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+function spaUpdate() {
   // if (import.meta.env.NODE_ENV !== 'production') return
 
   // 当前应用版本
-  const currentVersion = window.currentVersion
+  const currentVersion = updateVersion
 
   // 上次访问时间 ms
   let lastSeenMS = 0
@@ -92,7 +95,7 @@ export function spaUpdate() {
 }
 
 /** @type {(newVersion: string, currentVersion: string) => boolean}*/
-export function compareVersion (newVersion, currentVersion) {
+function compareVersion (newVersion, currentVersion) {
   if (newVersion && currentVersion) {
     //console.log(newVersion, currentVersion)
     if (newVersion.includes('.') && currentVersion.includes('.')) {
@@ -132,4 +135,6 @@ function createInterval (callback) {
   }
 
   return { interval, dispatch }
-}
+};
+exports.spaUpdate = spaUpdate;
+exports.compareVersion = compareVersion;
