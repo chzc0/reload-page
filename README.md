@@ -10,13 +10,15 @@ npm install reload-page
 ```
 
 ```javascript
-// main.js
+// main.js/index.js
 
 import { spaUpdate } from 'reload-page';
 
 spaUpdate()
 ```
 # Set Version
+
+### The version file needs to be generated and released to the production file along with the packaged file directory
 
 ## Vite
 
@@ -46,10 +48,22 @@ module.exports = defineConfig({
   }
 })
 ```
+## webpack
+
+```javascript
+// config
+
+const setVersionFile = require('reload-page/src/version')
+const path = require('path')
+
+module.exports = {
+    plugins: [setVersionFile(path.resolve(__dirname, "./public"))],
+}
+```
 
 ## License
 The project is released under the [MIT license](http://www.opensource.org/licenses/MIT).
 
 ## Contact
-The project's website is located at https://github.com/emn178/js-sha512  
-Author: Chen, Yi-Cyuan (emn178@gmail.com)
+The project's website is located at https://github.com/chzc0/reload-page  
+Author: Chen, Zhi-Cheng (chzc0@163.com)
