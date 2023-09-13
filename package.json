@@ -1,6 +1,6 @@
 {
   "name": "reload-page",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "After the front end releases, the page can be refreshed automatically.",
   "main": "index.js",
   "devDependencies": {
